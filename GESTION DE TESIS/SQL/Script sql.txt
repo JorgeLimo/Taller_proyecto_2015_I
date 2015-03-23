@@ -1,0 +1,426 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
+USE `mydb` ;
+
+-- -----------------------------------------------------
+-- Table `mydb`.`G1_Modalidad_Titulacion`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`G1_Modalidad_Titulacion` (
+  `idMod` VARCHAR(10) NOT NULL,
+  `tipMod` VARCHAR(50) NULL,
+  PRIMARY KEY (`idMod`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`G1_Tipo_Contacto`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`G1_Tipo_Contacto` (
+  `idTipCon` VARCHAR(10) NOT NULL,
+  `descripcion` VARCHAR(20) NULL,
+  PRIMARY KEY (`idTipCon`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`G1_Medio_Contacto`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`G1_Medio_Contacto` (
+  `idMedCon` VARCHAR(10) NOT NULL,
+  `descripcion` VARCHAR(50) NULL,
+  `idTipCon` VARCHAR(10) NOT NULL,
+  PRIMARY KEY (`idMedCon`),
+  INDEX `fk_G1_Medio_Contacto_G1_Tipo_Contacto1_idx` (`idTipCon` ASC),
+  CONSTRAINT `fk_G1_Medio_Contacto_G1_Tipo_Contacto1`
+    FOREIGN KEY (`idTipCon`)
+    REFERENCES `mydb`.`G1_Tipo_Contacto` (`idTipCon`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`G1_Alumno`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`G1_Alumno` (
+  `idAlu` VARCHAR(10) NOT NULL,
+  `nomAlu` VARCHAR(20) NULL,
+  `apePatAlu` VARCHAR(20) NULL,
+  `apeMatAlu` VARCHAR(20) NULL,
+  `fecNacAlu` DATE NULL,
+  `dniAlu` VARCHAR(10) NULL,
+  `dirAlu` VARCHAR(100) NULL,
+  `grado` VARCHAR(10) NULL,
+  `idMod` VARCHAR(10) NOT NULL,
+  `idMedCon` VARCHAR(10) NOT NULL,
+  PRIMARY KEY (`idAlu`),
+  UNIQUE INDEX `idAlu_UNIQUE` (`idAlu` ASC),
+  INDEX `fk_G1_Alumno_G1_Modalidad_Titulacion1_idx` (`idMod` ASC),
+  INDEX `fk_G1_Alumno_G1_Medio_Contacto1_idx` (`idMedCon` ASC),
+  CONSTRAINT `fk_G1_Alumno_G1_Modalidad_Titulacion1`
+    FOREIGN KEY (`idMod`)
+    REFERENCES `mydb`.`G1_Modalidad_Titulacion` (`idMod`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_G1_Alumno_G1_Medio_Contacto1`
+    FOREIGN KEY (`idMedCon`)
+    REFERENCES `mydb`.`G1_Medio_Contacto` (`idMedCon`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`G1_Curso`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`G1_Curso` (
+  `idCur` VARCHAR(10) NOT NULL,
+  `nomCur` VARCHAR(50) NULL,
+  `turno` VARCHAR(10) NULL,
+  `creditos` INT NULL,
+  `ciclo` INT NULL,
+  `seccion` VARCHAR(10) NULL,
+  PRIMARY KEY (`idCur`),
+  UNIQUE INDEX `idCur_UNIQUE` (`idCur` ASC))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`G1_Resumen_Alumno`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`G1_Resumen_Alumno` (
+  `idResAlu` VARCHAR(10) NOT NULL,
+  `creObliAcu` INT NULL,
+  `creLibAcu` INT NULL,
+  `creObliMenAcu` INT NULL,
+  `estCur` VARCHAR(10) NULL,
+  `escuela` VARCHAR(20) NULL,
+  `idAlu` VARCHAR(10) NOT NULL,
+  `idCur` VARCHAR(10) NOT NULL,
+  PRIMARY KEY (`idResAlu`),
+  UNIQUE INDEX `idHisAlu_UNIQUE` (`idResAlu` ASC),
+  INDEX `fk_G1_Historial_Alumno_G1_Alumno_idx` (`idAlu` ASC),
+  INDEX `fk_G1_Historial_Alumno_G1_Curso1_idx` (`idCur` ASC),
+  CONSTRAINT `fk_G1_Historial_Alumno_G1_Alumno`
+    FOREIGN KEY (`idAlu`)
+    REFERENCES `mydb`.`G1_Alumno` (`idAlu`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_G1_Historial_Alumno_G1_Curso1`
+    FOREIGN KEY (`idCur`)
+    REFERENCES `mydb`.`G1_Curso` (`idCur`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`G1_Matricula`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`G1_Matricula` (
+  `idano` VARCHAR(10) NOT NULL,
+  `idsem` VARCHAR(10) NOT NULL,
+  `creMat` INT NULL,
+  `idCur` VARCHAR(10) NOT NULL,
+  `idAlu` VARCHAR(10) NOT NULL,
+  PRIMARY KEY (`idano`, `idsem`, `idCur`, `idAlu`),
+  INDEX `fk_G1_Matricula_G1_Curso1_idx` (`idCur` ASC),
+  INDEX `fk_G1_Matricula_G1_Alumno1_idx` (`idAlu` ASC),
+  CONSTRAINT `fk_G1_Matricula_G1_Curso1`
+    FOREIGN KEY (`idCur`)
+    REFERENCES `mydb`.`G1_Curso` (`idCur`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_G1_Matricula_G1_Alumno1`
+    FOREIGN KEY (`idAlu`)
+    REFERENCES `mydb`.`G1_Alumno` (`idAlu`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`G1_Empresa`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`G1_Empresa` (
+  `idEmp` VARCHAR(10) NOT NULL,
+  `ruc` VARCHAR(20) NULL,
+  `dirEmp` VARCHAR(100) NULL,
+  `estado` VARCHAR(10) NULL,
+  `razSoc` VARCHAR(50) NULL,
+  `idMedCon` VARCHAR(10) NOT NULL,
+  PRIMARY KEY (`idEmp`),
+  INDEX `fk_G1_Empresa_G1_Medio_Contacto1_idx` (`idMedCon` ASC),
+  CONSTRAINT `fk_G1_Empresa_G1_Medio_Contacto1`
+    FOREIGN KEY (`idMedCon`)
+    REFERENCES `mydb`.`G1_Medio_Contacto` (`idMedCon`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`G1_Jurado`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`G1_Jurado` (
+  `idJur` VARCHAR(10) NOT NULL,
+  `nomJur` VARCHAR(20) NULL,
+  `apePatJur` VARCHAR(20) NULL,
+  `apeMatJur` VARCHAR(20) NULL,
+  `fecNacJur` DATE NULL,
+  `dniJur` VARCHAR(10) NULL,
+  `dirJur` VARCHAR(100) NULL,
+  `idMedCon` VARCHAR(10) NOT NULL,
+  PRIMARY KEY (`idJur`),
+  INDEX `fk_G1_Jurado_G1_Medio_Contacto1_idx` (`idMedCon` ASC),
+  CONSTRAINT `fk_G1_Jurado_G1_Medio_Contacto1`
+    FOREIGN KEY (`idMedCon`)
+    REFERENCES `mydb`.`G1_Medio_Contacto` (`idMedCon`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`G1_Empleado`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`G1_Empleado` (
+  `idEmp` VARCHAR(10) NOT NULL,
+  `nomEmp` VARCHAR(20) NULL,
+  `apePatEmp` VARCHAR(20) NULL,
+  `apeMatEmp` VARCHAR(20) NULL,
+  `dniEmp` VARCHAR(10) NULL,
+  `dirEmp` VARCHAR(100) NULL,
+  `idMedCon` VARCHAR(10) NOT NULL,
+  PRIMARY KEY (`idEmp`),
+  INDEX `fk_G1_Empleado_G1_Medio_Contacto1_idx` (`idMedCon` ASC),
+  CONSTRAINT `fk_G1_Empleado_G1_Medio_Contacto1`
+    FOREIGN KEY (`idMedCon`)
+    REFERENCES `mydb`.`G1_Medio_Contacto` (`idMedCon`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`G1_Cargo`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`G1_Cargo` (
+  `idCargo` VARCHAR(10) NOT NULL,
+  `tipCar` VARCHAR(20) NULL,
+  PRIMARY KEY (`idCargo`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`G1_Usuario`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`G1_Usuario` (
+  `idUsu` VARCHAR(10) NOT NULL,
+  `descripcion` VARCHAR(100) NULL,
+  `idAlu` VARCHAR(10) NOT NULL,
+  `idCargo` VARCHAR(10) NOT NULL,
+  `idEmp` VARCHAR(10) NOT NULL,
+  `idJur` VARCHAR(10) NOT NULL,
+  PRIMARY KEY (`idUsu`),
+  UNIQUE INDEX `idUsu_UNIQUE` (`idUsu` ASC),
+  INDEX `fk_G1_Usuario_G1_Alumno1_idx` (`idAlu` ASC),
+  INDEX `fk_G1_Usuario_G1_Cargo1_idx` (`idCargo` ASC),
+  INDEX `fk_G1_Usuario_G1_Empleado1_idx` (`idEmp` ASC),
+  INDEX `fk_G1_Usuario_G1_Jurado1_idx` (`idJur` ASC),
+  CONSTRAINT `fk_G1_Usuario_G1_Alumno1`
+    FOREIGN KEY (`idAlu`)
+    REFERENCES `mydb`.`G1_Alumno` (`idAlu`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_G1_Usuario_G1_Cargo1`
+    FOREIGN KEY (`idCargo`)
+    REFERENCES `mydb`.`G1_Cargo` (`idCargo`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_G1_Usuario_G1_Empleado1`
+    FOREIGN KEY (`idEmp`)
+    REFERENCES `mydb`.`G1_Empleado` (`idEmp`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_G1_Usuario_G1_Jurado1`
+    FOREIGN KEY (`idJur`)
+    REFERENCES `mydb`.`G1_Jurado` (`idJur`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`G1_Mencion`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`G1_Mencion` (
+  `idMen` VARCHAR(10) NOT NULL,
+  `descripcion` VARCHAR(100) NULL,
+  PRIMARY KEY (`idMen`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`G1_Curricula`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`G1_Curricula` (
+  `idCurri` VARCHAR(10) NOT NULL,
+  `desCurri` VARCHAR(50) NULL,
+  `estado` VARCHAR(10) NULL,
+  `creObliLib` INT NULL,
+  `creLib` INT NULL,
+  `creObliMen` INT NULL,
+  `idMen` INT NOT NULL,
+  `idCur` VARCHAR(10) NOT NULL,
+  PRIMARY KEY (`idCurri`, `idCur`),
+  INDEX `fk_G1_Curricula_G1_Mencion1_idx` (`idMen` ASC),
+  INDEX `fk_G1_Curricula_G1_Curso1_idx` (`idCur` ASC),
+  CONSTRAINT `fk_G1_Curricula_G1_Mencion1`
+    FOREIGN KEY (`idMen`)
+    REFERENCES `mydb`.`G1_Mencion` (`idMen`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_G1_Curricula_G1_Curso1`
+    FOREIGN KEY (`idCur`)
+    REFERENCES `mydb`.`G1_Curso` (`idCur`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`G1_Requisito`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`G1_Requisito` (
+  `idReq` VARCHAR(10) NOT NULL,
+  `detalle` VARCHAR(50) NULL,
+  `estado` VARCHAR(10) NULL,
+  PRIMARY KEY (`idReq`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`G1_Requisito_Alumno`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`G1_Requisito_Alumno` (
+  `idReq` VARCHAR(10) NOT NULL,
+  `idAlu` VARCHAR(10) NOT NULL,
+  `estReq` VARCHAR(10) NULL,
+  PRIMARY KEY (`idReq`, `idAlu`),
+  INDEX `fk_G1_Requisito_has_G1_Alumno_G1_Alumno1_idx` (`idAlu` ASC),
+  INDEX `fk_G1_Requisito_has_G1_Alumno_G1_Requisito1_idx` (`idReq` ASC),
+  CONSTRAINT `fk_G1_Requisito_has_G1_Alumno_G1_Requisito1`
+    FOREIGN KEY (`idReq`)
+    REFERENCES `mydb`.`G1_Requisito` (`idReq`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_G1_Requisito_has_G1_Alumno_G1_Alumno1`
+    FOREIGN KEY (`idAlu`)
+    REFERENCES `mydb`.`G1_Alumno` (`idAlu`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`G1_Tesis`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`G1_Tesis` (
+  `idTes` VARCHAR(10) NOT NULL,
+  `titulo` VARCHAR(100) NULL,
+  `fecPre` DATE NULL,
+  `fecFin` DATE NULL,
+  `idAlu` VARCHAR(10) NOT NULL,
+  PRIMARY KEY (`idTes`),
+  INDEX `fk_G1_Tesis_G1_Alumno1_idx` (`idAlu` ASC),
+  CONSTRAINT `fk_G1_Tesis_G1_Alumno1`
+    FOREIGN KEY (`idAlu`)
+    REFERENCES `mydb`.`G1_Alumno` (`idAlu`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`G1_Informe_Empresa`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`G1_Informe_Empresa` (
+  `idInfEmp` VARCHAR(10) NOT NULL,
+  `puesto` VARCHAR(50) NULL,
+  `fecFin` DATE NULL,
+  `fecIni` DATE NULL,
+  `area` VARCHAR(50) NULL,
+  `detalle` VARCHAR(50) NULL,
+  `idEmp` VARCHAR(10) NOT NULL,
+  `idAlu` VARCHAR(10) NOT NULL,
+  PRIMARY KEY (`idInfEmp`),
+  INDEX `fk_G1_Informe_Empresa_G1_Empresa1_idx` (`idEmp` ASC),
+  INDEX `fk_G1_Informe_Empresa_G1_Alumno1_idx` (`idAlu` ASC),
+  CONSTRAINT `fk_G1_Informe_Empresa_G1_Empresa1`
+    FOREIGN KEY (`idEmp`)
+    REFERENCES `mydb`.`G1_Empresa` (`idEmp`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_G1_Informe_Empresa_G1_Alumno1`
+    FOREIGN KEY (`idAlu`)
+    REFERENCES `mydb`.`G1_Alumno` (`idAlu`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`G1_Evaluacion`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`G1_Evaluacion` (
+  `idEva` VARCHAR(10) NOT NULL,
+  `fecha` DATE NULL,
+  `observacion` VARCHAR(500) NULL,
+  `resultado` VARCHAR(10) NULL,
+  `idTes` VARCHAR(10) NOT NULL,
+  `idInfEmp` VARCHAR(10) NOT NULL,
+  PRIMARY KEY (`idEva`),
+  INDEX `fk_G1_Evaluacion_G1_Tesis1_idx` (`idTes` ASC),
+  INDEX `fk_G1_Evaluacion_G1_Informe_Empresa1_idx` (`idInfEmp` ASC),
+  CONSTRAINT `fk_G1_Evaluacion_G1_Tesis1`
+    FOREIGN KEY (`idTes`)
+    REFERENCES `mydb`.`G1_Tesis` (`idTes`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_G1_Evaluacion_G1_Informe_Empresa1`
+    FOREIGN KEY (`idInfEmp`)
+    REFERENCES `mydb`.`G1_Informe_Empresa` (`idInfEmp`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `mydb`.`G1_Jurado_Evaluacion`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`.`G1_Jurado_Evaluacion` (
+  `idJur` VARCHAR(10) NOT NULL,
+  `idEva` VARCHAR(10) NOT NULL,
+  `nota` INT NULL,
+  PRIMARY KEY (`idJur`, `idEva`),
+  INDEX `fk_G1_Jurado_has_G1_Evaluacion_G1_Evaluacion1_idx` (`idEva` ASC),
+  CONSTRAINT `fk_G1_Jurado_has_G1_Evaluacion_G1_Jurado1`
+    FOREIGN KEY (`idJur`)
+    REFERENCES `mydb`.`G1_Jurado` (`idJur`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_G1_Jurado_has_G1_Evaluacion_G1_Evaluacion1`
+    FOREIGN KEY (`idEva`)
+    REFERENCES `mydb`.`G1_Evaluacion` (`idEva`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
