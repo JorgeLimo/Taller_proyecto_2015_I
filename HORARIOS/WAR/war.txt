@@ -1,1 +1,0 @@
-Se debe agregar el war y eliminar este archivo.
