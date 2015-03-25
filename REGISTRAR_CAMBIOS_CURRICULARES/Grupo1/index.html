@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title></title>
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <link rel="stylesheet" href="css/row.css">
+  <!-- Latest compiled and minified CSS -->
+
+  <!-- Optional theme 
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css">-->
+
+  <!-- Latest compiled and minified JavaScript -->
+
+  <!-- Latest compiled and minified CSS 
+<link rel="stylesheet" href="css/bootstrap.min.css">-->
+  
+</head>
+<body>
+  <div class="container">
+
+    <h1>Plan de Estudio 2015</h1>
+
+
+    <button type="button" class="btn btn-lg btn-primary"><img src="images/document193.png" width="20px" heigth="20px"> Crear Curso</button>
+
+
+    <button type="button" class="btn btn-lg btn-primary"><img src="images/word-document1.png" width="20px" heigth="20px">  Ciclo</button>
+
+    <button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#basicModal"><img src="images/word-document1.png" width="20px" heigth="20px">  Credito</button>
+
+
+    <button type="button" class="btn btn-lg btn-primary"><img src="images/word-document1.png" width="20px" heigth="20px">  Horas</button>
+    <button type="button" class="btn btn-lg btn-primary"><img src="images//word-document1.png" width="20px" heigth="20px">  Requisito</button>
+    <button type="button" class="btn btn-lg btn-primary"><img src="images/down-arrow6.png" width="20px" heigth="20px"> Dar de Baja</button>
+
+    <br><br>
+
+
+
+    <div class="table-responsive">
+      <table class="table table-hover table-bordered table-striped" id="sortable">
+        <thead>
+          <tr style="background-color:#8B0000;color:#ffffff">
+            <th>
+              Nro
+            </th>
+            <th>
+              Codigo
+            </th>
+            <th>
+              Curso
+            </th>
+            <th>
+              Detalle
+            </th>
+            <th>
+              Ciclo
+            </th>
+            <th>
+              Credito
+            </th>
+            <th>
+              Hr Teo
+            </th>
+            <th>
+              Hr Lab
+            </th>
+            <th>
+              Hr Prac
+            </th>
+            <th>
+              Requisito
+            </th>
+            <th>
+              Acción
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+
+              <tr data-item-id="1" class="item ui-sortable-handle">
+                <td>1</td>
+                <td>
+                  021234
+                </td>
+                <td>
+                  Taller de Proyecto
+                </td>
+                <td>
+                  Cambio de Credito
+                </td>
+                <td>
+
+                </td>
+                <td>
+                  5
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+
+
+                </td>
+
+                <td>
+                 <a class="btn btn-danger pull-left" href="#"><img src="images/cancel20.png" width="20px" heigth="20px"></a>
+
+               </td>
+             </tr>
+
+
+             <tr data-item-id="2" class="item ui-sortable-handle">
+                <td>2</td>
+                <td>
+                  021236
+                </td>
+                <td>
+                  Sistemas de informacion III
+                </td>
+                <td>
+                  Cambio de requisito
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+
+                <td>
+                  098322
+                </td>
+
+                <td>
+                 <a class="btn btn-danger pull-left" href="#"><img src="images/cancel20.png" width="20px" heigth="20px"></a>
+
+               </td>
+             </tr>
+
+           
+             <tr data-item-id="3" class="item ui-sortable-handle">
+                <td>3</td>
+                <td>
+                  021266
+                </td>
+                <td>
+                  Gestion de Procesos
+                </td>
+                <td>
+                  Cambio de Ciclo
+                </td>
+                <td>
+                  E4
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+                </td>
+                <td>
+
+
+
+                </td>
+                <td>
+
+                </td>
+                
+                <td>
+                 <a class="btn btn-danger pull-left" href="#"><img src="images/cancel20.png" width="20px" heigth="20px"></a>
+
+               </td>
+             </tr>
+
+
+            <tr data-item-id="4" class="item ui-sortable-handle">
+              <td>4</td>
+              <td>
+                656789
+              </td>
+              <td>
+                Ingenieria Administrativa
+              </td>
+              <td>
+                Cambio de Ciclo
+              </td>
+              <td>
+                4
+              </td>
+              <td>
+
+              </td>
+              <td>
+
+              </td>
+              <td>
+
+              </td>
+              <td>
+
+              </td>
+              <td>
+
+              </td>
+              <td>
+               <a class="btn btn-danger pull-left" href="#"><img src="images/cancel20.png" width="20px" heigth="20px"></a>
+
+              </td>
+            </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+
+    <button type="button" class="btn btn-lg btn-primary"><img src="images/play131.png" width="20px" heigth="20px"> Ejecutar Cambios</button>
+    <button type="button" class="btn btn-lg btn-primary"><img src="images/play131.png" width="20px" heigth="20px"> Ejecutar Paso a Paso</button>
+    <button type="button" class="btn btn-lg btn-primary"><img src="images/add59.png" width="20px" heigth="20px"> Visualizar Cambios</button>
+    <button type="button" class="btn btn-lg btn-primary"><img src="images/floppydisk.png" width="20px" heigth="20px"> Guardar y exportar</button>
+
+
+    <br>
+    <br>
+
+    <h2>Alertas</h2>
+    <div class="alert alert-danger" role="alert">
+      <strong>1 Observación!</strong> Tiene que cambiar el numero horas del curso de taller de proyectos.
+    </div>
+    <div class="alert alert-danger" role="alert">
+      <strong>1 Observación!</strong> Tiene que agregar un curso en el 4er ciclo.
+    </div>
+    <div class="alert alert-danger" role="alert">
+      <strong>3 Observación!</strong> Tiene que cambiar los requisitos.
+    </div>
+
+
+</div>
+
+<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Editar Credito</h4>
+      </div>
+      <div class="modal-body">
+
+        <input type="email" class="form-control" id="ejemplo_email_1"
+        placeholder="Introduce nombre de curso">
+
+        <button type="submit" class="btn btn-default">Buscar</button>
+
+        <br><br>
+        <br>
+        Curso: Taller de Proyecto
+        <br>
+        Credito Actual: 4
+        <br>
+        <br>
+        Nueva cant Credito:<br>
+        <input type="email" class="form-control" id="ejemplo_email_1"
+        placeholder="Introduce cant de Credito">
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
+        <button type="button" class="btn btn-primary">Aplicar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<script src="https://code.jquery.com/jquery.js"></script>
+
+<script src="js/bootstrap.min.js"></script>
+
+<script data-turbolinks-track="true" src="js/row.js"></script>
+</body>
+</html>
+
+<!--usar success en los class de los tr-->
