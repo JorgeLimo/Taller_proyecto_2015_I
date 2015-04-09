@@ -1,0 +1,114 @@
+.opciones {
+	display: inline-flex;
+}
+
+#formCodAlu {
+	width: 150px;
+	margin-left: 100px;
+}
+
+.ciclo {
+	width: 100px;
+	height: 350px;
+	display: inline-block;
+	text-align: center;
+	float: left;
+	margin-left: 4px;
+}
+
+.ciclo h6 {
+	font-size: 14px;
+	font-weight: bolder;
+	background-color: gray;
+	padding-bottom: 4px;
+	padding-top: 4px;
+	margin-top: 0;
+}
+
+#malla {
+	width: 1055px;
+	border: 2px solid black;
+	padding: 4px;
+	height: 556px;
+}
+
+.leyenda h5 {
+	font-size: 14px;
+	font-weight: bolder;
+	margin-bottom: 0px;
+}
+
+.leyenda2 {
+	border: 2px solid black;
+	margin-bottom: 10px;
+	width: 845px;
+}
+
+.cuadro {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	border: 2px solid black;
+	margin-left: 25px;
+	margin-right: 5px;
+}
+
+.tipoA01 {
+	background-color: #77DD77;
+}
+
+.tipoA02 {
+	background-color: #E4BDDC;
+}
+
+.tipoA03 {
+	background-color: #F6D7C3;
+}
+
+.tipoA04 {
+	background-color: #DBD8F7;
+}
+
+.tipoA05 {
+	background-color: #B5DBF8;
+}
+
+.mencionciclo {
+	-webkit-box-shadow: inset 0px 0px 12px 6px rgba(255, 0, 0, 1);
+	-moz-box-shadow: inset 0px 0px 12px 6px rgba(255, 0, 0, 1);
+	box-shadow: inset 0px 0px 12px 6px rgba(255, 0, 0, 1);
+}
+
+.curso {
+	width: 90px;
+	height: 50px;
+	margin: 0 auto;
+	margin-bottom: 15px;
+	font-size: 15px;
+	font-weight: bolder;
+	overflow: hidden;
+}
+
+.curso span {
+	font-size: 10px;
+}
+
+.curso .creditos {
+	float: left;
+	font-size: 10px;
+	margin-top: 4px;
+	margin-left: 4px;
+}
+
+.curso .otrorequisito {
+	float: right;
+	/* position: absolute; */
+	font-size: 10px;
+	margin-top: 14px;
+	/* margin-right: -17px; */
+	/* position: absolute; */
+}
+
+.resaltado {
+	border: solid 2px rgba(255, 206, 0, 1);
+}

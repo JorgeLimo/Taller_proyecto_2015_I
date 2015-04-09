@@ -1,0 +1,139 @@
+<?php
+
+
+?>
+ <meta charset="utf-8" />
+<title>MKConsultores - Ingreso de Personal</title>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+
+
+ <link rel='stylesheet' href='http://codepen.io/assets/libs/fullpage/jquery-ui.css'>
+
+    <link rel="stylesheet" href="css/style-forms.css" media="screen" type="text/css" />
+
+<div class="login-card">
+<form id="formMKpersonal" name="formMKpersonal" class="basic-grey" method="post" enctype="multipart/form-data" action="ingresartrabajador.php?<?php $ruc=$_GET['trabajadores'];
+echo "trabajadores=$ruc"?>
+				<header id="header" class="info">
+				<a href="logout.php"><b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cerrar Sesión</b></a>
+			<h1>Registro de Logros</h1>
+				</header>
+				<ul>
+		    <li id="fo64li3" class="notranslate">
+				<h3>Informacion del Curso</h3>
+			</li>
+		<li id="fo64li3" class="notranslate">
+				<h4>Criterio de Seleccion</span></h4>
+			</li>
+				<br><label class="desc" id="title3" for="">Curso : &nbsp;&nbsp;</label>
+				
+					<select name="afp" id="afp"  tabindex="8">
+	                	<option value="Prima AFP">Algoritmo y Estructura de Datos I</option>
+	                    <option value="Habitat AFP">Algoritmo y Estructura de Datos II</option>
+	                    <option value="Profuturo">Teoria de Diseño de Base de Datos</option>
+	                    <option value="AFP Integra">Ingenieria de Software I</option>
+	                </select>
+				
+			
+			
+			
+				<br><div><input id="saveForm" name="saveForm" class="" type="submit" value="Seleccionar" /></div>
+			
+			<br>
+			<li id="fo64li3" class="notranslate"><h4>Datos Generales del Curso</span></h4></li>
+				<label class="desc" id="title3" for="">Codigo del Curso: 0133430</label>
+				<label class="desc" id="title3" for="">Docente:Ing.Carlos Acuña Flores&nbsp;&nbsp;&nbsp;&nbsp;</label>
+				
+			
+			<br>
+			
+			<table border = '1'> 
+			<tr><td>Codigo de la Nota</td><td>Descripcion de la Nota</td><td>Seleccionar</td></tr>  
+			
+			<tr><td>EF</td><td>Examen final</td><td><input type="radio"></td></tr> 
+			<tr><td>EP</td><td>Examen parcial</td><td><input type="radio"></td></tr>
+			<tr><td>P1</td><td>Practica 1</td><td><input type="radio"></td></tr> 
+			<tr><td>P2</td><td>Practica 2</td><td><input type="radio"></td></tr> 				
+
+			</table>  
+				
+			
+			<br>
+				<div><input id="saveForm" name="saveForm" class="" type="submit" value="Asignar Logro" /></div>
+			
+		</ul>
+	</form> 
+</div>
+            <!-- End Main -->	
+
+                            
+   
+   <meta charset="utf-8" />
+<title>MKConsultores - Ingreso de Personal</title>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+<script>
+$(function () {
+$("#datepicker").datepicker();
+});
+</script>
+
+<script>
+$( "#datepicker1" ).datepicker({
+  dateFormat: "yy-mm-dd"
+});
+$( "#datepicker2" ).datepicker({
+  dateFormat: "yy-mm-dd"
+});
+</script>
+
+
+<script>
+$(function () {
+$.datepicker1.setDefaults($.datepicker.regional["es"]);
+ $("#datepicker1").datepicker();
+ 
+firstDay: 1
+});
+});
+</script>
+
+<script>
+jQuery(function ($) {
+$.datepicker.regional['es'] = {
+closeText: 'Cerrar',
+prevText: '
+nextText: 'Sig>',
+currentText: 'Hoy',
+monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun',
+'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mié;', 'Juv', 'Vie', 'Sáb'],
+dayNamesMin: ['Do', 'Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sá'],
+weekHeader: 'Sm',
+
+firstDay: 1,
+isRTL: false,
+showMonthAfterYear: false,
+yearSuffix: ''
+};
+$.datepicker.setDefaults($.datepicker.regional['es']);
+});
+
+
+
+</script>
+   
+</body>
+
+
+
+</html>

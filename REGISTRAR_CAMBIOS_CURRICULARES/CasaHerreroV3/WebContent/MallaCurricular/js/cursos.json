@@ -1,0 +1,354 @@
+{
+	"cursos":[
+		{
+			"id" : 1,
+			"nombre" : "Curso1",
+			"area" : 1,
+			"ciclo" : 1,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 2,
+			"nombre" : "Curso2",
+			"area" : 2,
+			"ciclo" : 1,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 3,
+			"nombre" : "Curso3",
+			"area" : 3,
+			"ciclo" : 1,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 4,
+			"nombre" : "Curso4",
+			"area" : 4,
+			"ciclo" : 1,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 5,
+			"nombre" : "Curso5",
+			"area" : 5,
+			"ciclo" : 1,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 6,
+			"nombre" : "Curso6",
+			"area" : 1,
+			"ciclo" : 2,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 7,
+			"nombre" : "Curso7",
+			"area" : 2,
+			"ciclo" : 2,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 8,
+			"nombre" : "Curso8",
+			"area" : 3,
+			"ciclo" : 2,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 9,
+			"nombre" : "Curso9",
+			"area" : 4,
+			"ciclo" : 2,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 10,
+			"nombre" : "Curso10",
+			"area" : 5,
+			"ciclo" : 2,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 11,
+			"nombre" : "Curso11",
+			"area" : 1,
+			"ciclo" : 3,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 12,
+			"nombre" : "Curso12",
+			"area" : 2,
+			"ciclo" : 3,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 13,
+			"nombre" : "Curso13",
+			"area" : 3,
+			"ciclo" : 3,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 14,
+			"nombre" : "Curso14",
+			"area" : 4,
+			"ciclo" : 3,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 15,
+			"nombre" : "Curso15",
+			"area" : 5,
+			"ciclo" : 3,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 16,
+			"nombre" : "Curso16",
+			"area" : 1,
+			"ciclo" : 4,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 17,
+			"nombre" : "Curso17",
+			"area" : 2,
+			"ciclo" : 4,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 18,
+			"nombre" : "Curso18",
+			"area" : 3,
+			"ciclo" : 4,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 19,
+			"nombre" : "Curso19",
+			"area" : 4,
+			"ciclo" : 4,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 20,
+			"nombre" : "Curso20",
+			"area" : 5,
+			"ciclo" : 4,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 21,
+			"nombre" : "Curso21",
+			"area" : 1,
+			"ciclo" : 5,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 22,
+			"nombre" : "Curso22",
+			"area" : 2,
+			"ciclo" : 5,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 23,
+			"nombre" : "Curso23",
+			"area" : 3,
+			"ciclo" : 5,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 24,
+			"nombre" : "Curso24",
+			"area" : 4,
+			"ciclo" : 5,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 25,
+			"nombre" : "Curso25",
+			"area" : 5,
+			"ciclo" : 5,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 26,
+			"nombre" : "Curso26",
+			"area" : 1,
+			"ciclo" : 6,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 27,
+			"nombre" : "Curso27",
+			"area" : 2,
+			"ciclo" : 6,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 28,
+			"nombre" : "Curso28",
+			"area" : 3,
+			"ciclo" : 6,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 29,
+			"nombre" : "Curso29",
+			"area" : 4,
+			"ciclo" : 6,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 30,
+			"nombre" : "Curso30",
+			"area" : 5,
+			"ciclo" : 6,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 31,
+			"nombre" : "Curso31",
+			"area" : 1,
+			"ciclo" : 7,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 32,
+			"nombre" : "Curso32",
+			"area" : 2,
+			"ciclo" : 7,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 33,
+			"nombre" : "Curso33",
+			"area" : 3,
+			"ciclo" : 7,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 34,
+			"nombre" : "Curso34",
+			"area" : 4,
+			"ciclo" : 7,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 35,
+			"nombre" : "Curso35",
+			"area" : 5,
+			"ciclo" : 7,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 36,
+			"nombre" : "Curso36",
+			"area" : 1,
+			"ciclo" : 8,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 37,
+			"nombre" : "Curso37",
+			"area" : 2,
+			"ciclo" : 8,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 38,
+			"nombre" : "Curso38",
+			"area" : 3,
+			"ciclo" : 8,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 39,
+			"nombre" : "Curso39",
+			"area" : 4,
+			"ciclo" : 8,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 40,
+			"nombre" : "Curso40",
+			"area" : 5,
+			"ciclo" : 8,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 41,
+			"nombre" : "Curso41",
+			"area" : 1,
+			"ciclo" : 9,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 42,
+			"nombre" : "Curso42",
+			"area" : 2,
+			"ciclo" : 9,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 43,
+			"nombre" : "Curso43",
+			"area" : 3,
+			"ciclo" : 9,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 44,
+			"nombre" : "Curso44",
+			"area" : 4,
+			"ciclo" : 9,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 45,
+			"nombre" : "Curso45",
+			"area" : 5,
+			"ciclo" : 9,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 46,
+			"nombre" : "Curso46",
+			"area" : 1,
+			"ciclo" : 10,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 47,
+			"nombre" : "Curso47",
+			"area" : 2,
+			"ciclo" : 10,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 48,
+			"nombre" : "Curso48",
+			"area" : 3,
+			"ciclo" : 10,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 49,
+			"nombre" : "Curso49",
+			"area" : 4,
+			"ciclo" : 10,
+			"prerequisitos" : {}
+		},
+		{
+			"id" : 50,
+			"nombre" : "Curso50",
+			"area" : 5,
+			"ciclo" : 10,
+			"prerequisitos" : {}
+		}
+	]
+}

@@ -1,0 +1,103 @@
+<style type="text/css">
+body,td,th {
+	color: #000;
+}
+</style>
+<div id="registrarConvocatoria">
+	<fieldset class="ui-widget ui-widget-content" style="font:13px Arial;padding:10px">
+		<legend style="padding:10px;color:#444"><b>DATOS GENERALES</b></legend>
+		<table width="533" border="0">
+		  <tr>
+		    <td width="93">Codigo</td>
+		    <td width="126">2012347854</td>
+		    <td width="65">Alumno</td>
+		    <td width="231">Jose Garcia Perez</td>
+	      </tr>
+	  </table>
+	</fieldset>
+
+	
+	
+<fieldset class="ui-widget ui-widget-content" style="font:13px Arial;padding:10px">
+	<legend style="padding:10px;color:#444"><b>CALIFICACION POR LOGROS</b></legend>
+	<table width="570" border="1" align="center">
+		  <tr>
+		    <td width="68" align="center">Semestre</td>
+		    <td width="62" align="center"> Codigo</td>
+		    <td width="78" align="center">Curso</td>
+		    <td width="287" align="center">Descripcion de Logro</td>
+		    <td width="41" align="center">Nota</td>
+	      </tr>
+		  <tr>
+		    <td align="center">2013-2</td>
+	        <td align="center">008862
+            <td align="center"><label for="checkbox"></label>
+            AEDII    <td align="center">Analisis e interpretacion de datos
+                <td align="center">18                
+	  </tr>
+		  <tr>
+		    <td align="center">2014-1</td>
+		    <td align="center">008723
+	        <td align="center"><label for="checkbox2"></label>
+	          ING. SW I
+	              <td align="center">Habilidad trabajo en equipo multidisciplinario                    
+            <td align="center">16            
+	  </tr>
+		  <tr>
+		    <td align="center">2014-2</td>
+		    <td align="center">002343
+	        <td align="center"><label for="checkbox3"></label>            
+      ING. SW II      <td align="center">Comprension de los procesos de SI
+            <td align="center">17            
+	  </tr>
+    </table>
+		<table width="569" border="0">
+		  <tr>
+		    <td width="57">&nbsp;</td>
+		    <td width="292">&nbsp;</td>
+		    <td width="106">&nbsp;</td>
+		    <td width="96">&nbsp;</td>
+	      </tr>
+		  <tr>
+		    <td>&nbsp;</td>
+		    <td>&nbsp;</td>
+		    <td><input type="submit" name="Nueva Educación2" id="Nueva Educación" value="Exportar" /></td>
+		    <td><input type="submit" name="Nueva Educación" id="Nueva Educación2" value="Salir" /></td>
+	      </tr>
+		  <tr>
+		    <td>&nbsp;</td>
+		    <td>&nbsp;</td>
+		    <td>&nbsp;</td>
+		    <td>&nbsp;</td>
+	      </tr>
+    </table>
+		<p>&nbsp;</p>
+</fieldset>   
+
+</div>
+
+<script>
+
+$(document).ready(function(){
+	
+	$( "#fechIntegracion" ).datepicker({
+	      showOn: "button",
+	      buttonImage: "images/calendar.gif",
+	      buttonImageOnly: true,
+	      minDate : new Date()
+	    });
+	
+	$("#numeroVacante, #jornadaInicio, #jornadaFin").numeric();
+	$('.jqte-area').jqte();
+	var jqteStatus = true;
+	$(".status").click(function()
+	{
+		jqteStatus = jqteStatus ? false : true;
+		$('.jqte-area').jqte({"status" : jqteStatus})
+	});
+	
+// 	llenarDatosEmpresa();
+});
+
+
+</script>

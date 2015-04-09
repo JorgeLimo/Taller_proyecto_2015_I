@@ -1,0 +1,161 @@
+<style type="text/css">
+body,td,th {
+	color: #000;
+}
+</style>
+<div id="registrarConvocatoria">
+	<fieldset class="ui-widget ui-widget-content" style="font:13px Arial;padding:10px">
+		<legend style="padding:10px;color:#444"><b>DATOS GENERALES</b></legend>
+		<table width="533" border="0">
+		  <tr>
+		    <td width="97">Codigo</td>
+		    <td width="119">2341284</td>
+		    <td width="29">Estimado</td>
+		    <td width="270">Ing. Carlos Acuna Flores</td>
+	      </tr>
+	  </table>
+	</fieldset>
+
+	
+	<fieldset class="ui-widget ui-widget-content" style="font:13px Arial;padding:10px">
+		<legend style="padding:10px;color:#444"><b>CRITERIO DE SELECCION</b></legend>
+		<table width="544" border="0">
+		  <tr>
+		    <td width="213">&nbsp;</td>
+		    <td width="199">&nbsp;</td>
+		    <td width="118">&nbsp;</td>
+	      </tr>
+		  <tr>
+		    <td><span style="font-weight:normal;width:150px;margin-left:20px;margin-right:20px;color:#444">Curso</span></td>
+		    <td colspan="2"><select id="institucion">
+			<option value="0" selected="selected">----Seleccione----</option>
+			<option value="1">USMP</option>
+			<option value="2">USIL</option>
+            <option value="3">U. Lima</option>
+			<option value="4">U. Católica</option>
+            <option value="4">Otros</option>
+		</select></td>
+          </tr>
+		  <tr>
+		    <td>&nbsp;</td>
+		    <td>&nbsp;</td>
+		    <td><input type="submit" name="Buscar" id="Nueva Educación" value="Buscar" /></td>
+	      </tr>
+		  <tr>
+		    <td>&nbsp;</td>
+		    <td colspan="2">&nbsp;</td>
+	      </tr>
+      </table>
+	</fieldset>
+<fieldset class="ui-widget ui-widget-content" style="font:13px Arial;padding:10px">
+	<legend style="padding:10px;color:#444"><b>CALIFICACION DEL CURSO</b></legend>
+	<table width="542" border="1" align="center">
+		  <tr>
+		    <td width="96" align="center">Codigo Nota</td>
+		    <td width="283" align="center"> Descripcion Iden Nota</td>
+		    <td width="141" align="center">Seleccion</td>
+	      </tr>
+		  <tr>
+		    <td align="center">E1</td>
+	        <td align="center">Examen 1
+          <td align="center">
+            <input type="checkbox" name="checkbox" id="checkbox" />
+            <label for="checkbox"></label>
+          
+      </tr>
+		  <tr>
+		    <td align="center">E2</td>
+		    <td align="center">Examen 2            
+		    <td align="center"><input type="checkbox" name="checkbox2" id="checkbox2" />
+            <label for="checkbox2"></label>            
+      </tr>
+		  <tr>
+		    <td align="center">P1</td>
+		    <td align="center">Practica Calificada 1           
+		    <td align="center"><input type="checkbox" name="checkbox3" id="checkbox3" />
+            <label for="checkbox3"></label>            
+      </tr>
+    </table>
+		<table width="541" border="0">
+		  <tr>
+		    <td width="57">&nbsp;</td>
+		    <td width="57">&nbsp;</td>
+		    <td width="238">&nbsp;</td>
+		    <td width="171">&nbsp;</td>
+	      </tr>
+		  <tr>
+		    <td>&nbsp;</td>
+		    <td>&nbsp;</td>
+		    <td>&nbsp;</td>
+		    <td><input type="submit" name="Nueva Educación" id="Nueva Educación2" value="Añadir Detalle de Logro" /></td>
+	      </tr>
+		  <tr>
+		    <td>&nbsp;</td>
+		    <td>&nbsp;</td>
+		    <td>&nbsp;</td>
+		    <td>&nbsp;</td>
+	      </tr>
+    </table>
+		<p>&nbsp;</p>
+</fieldset>   
+	<fieldset class="ui-widget ui-widget-content" style="font:13px Arial;padding:10px">
+	<legend style="padding:10px;color:#444"><b>CRITERIO DE SELECCION</b></legend>
+    <table width="544" border="1">
+      <tr>
+        <td width="103" align="center">Codigo Nota</td>
+        <td align="center">Descripcion de Logro</td>
+      </tr>
+      <tr>
+        <td align="center"> E1</td>
+        <td align="center">Analisis en Computacion</td>
+      </tr>
+      <tr>
+        <td align="center">&nbsp;</td>
+        <td align="center">&nbsp;</td>
+      </tr>
+      <tr>
+        <td align="center">&nbsp;</td>
+        <td align="center">&nbsp;</td>
+      </tr>
+    </table>
+    <table width="543" border="0">
+      <tr>
+        <td width="217">&nbsp;</td>
+        <td width="147">&nbsp;</td>
+        <td width="165">&nbsp;</td>
+      </tr>
+      <tr>
+        <td height="27">&nbsp;</td>
+        <td><input type="submit" name="button" id="button" value="Exportar" /></td>
+        <td><input type="submit" name="button2" id="button2" value="Imprimir" /></td>
+      </tr>
+    </table>
+    <p style="padding:10px;color:#444">&nbsp;  </p>
+  </fieldset> 
+</div>
+
+<script>
+
+$(document).ready(function(){
+	
+	$( "#fechIntegracion" ).datepicker({
+	      showOn: "button",
+	      buttonImage: "images/calendar.gif",
+	      buttonImageOnly: true,
+	      minDate : new Date()
+	    });
+	
+	$("#numeroVacante, #jornadaInicio, #jornadaFin").numeric();
+	$('.jqte-area').jqte();
+	var jqteStatus = true;
+	$(".status").click(function()
+	{
+		jqteStatus = jqteStatus ? false : true;
+		$('.jqte-area').jqte({"status" : jqteStatus})
+	});
+	
+// 	llenarDatosEmpresa();
+});
+
+
+</script>
